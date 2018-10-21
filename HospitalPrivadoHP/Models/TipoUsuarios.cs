@@ -13,5 +13,6 @@ namespace HospitalPrivadoHP.Models
 		public int Id_tipo_usuario { get; set; }
 		[Required]
 		public string tipo_usuario { get; set; }
+		//public TipoUsuarios tipo_usuario 
 	}
 }

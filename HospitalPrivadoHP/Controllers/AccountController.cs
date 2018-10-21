@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using HospitalPrivadoHP.Models;
+using System.Collections.Generic;
+using HospitalPrivadoHP.Migrations;
 
 namespace HospitalPrivadoHP.Controllers
 {
@@ -139,7 +141,13 @@ namespace HospitalPrivadoHP.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            return View();
+			//List<Action>
+			List<SelectListItem> items = new List<SelectListItem>();
+			items.Add(new SelectListItem { Text = "Adminsitraor", Value = "1" });
+			items.Add(new SelectListItem { Text = "Doctor", Value = "2" });
+			items.Add(new SelectListItem { Text = "Paciente", Value = "3" });
+			ViewBag.RolID = items;
+			return View();
         }
 
         //
@@ -151,7 +159,7 @@ namespace HospitalPrivadoHP.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, RolID = model.RolID };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

@@ -3,8 +3,8 @@
 }
 
 <div class="jumbotron">
-    <h1>Clinica Privada</h1>
-    <p class="lead">Tu salud está en nuestras manos. Mejora tu calidad de vida vive con salud. Salud es lo que tu necesitas, recuperala.</p>
+    <h1>Hospital Privado</h1>
+    <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
     <div class="img-responsive">
         <img src="../Content/My_Bootstrap/img/my_img/hosp4.jpg" class="top-izq" width="100%" />
     </div>
@@ -44,4 +44,28 @@
             para mejorar la calidad de vida de la comunidad a la que sirve.
         </p>
     </div>
+    @if (ViewBag.rol == 1)
+    {
+        <div class="col-md-6">
+            <p>
+                Usuario = Administrador
+            </p>
+        </div>
+    }
+    else if (ViewBag.rol == 2)
+    {
+        <div class="col-md-6">
+            <p>
+                Usuario = Doctor
+            </p>
+        </div>
+    }
+    else if (ViewBag.rol == 3)
+    {
+        <div class="col-md-6">
+            <p>
+                Usuario = Paciente
+            </p>
+        </div>
+    }
 </div>

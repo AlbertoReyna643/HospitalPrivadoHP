@@ -201,8 +201,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201810142225237_RolID.cs" />
+    <Compile Include="Migrations\201810142225237_RolID.Designer.cs">
+      <DependentUpon>201810142225237_RolID.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Administradores.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\TipoUsuarios.cs" />
@@ -349,6 +354,7 @@
     <Content Include="Content\My_Bootstrap\css\assets\swf\flashExport.swf" />
     <Content Include="Content\My_Bootstrap\css\bootstrap.css" />
     <Content Include="Content\My_Bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\My_Bootstrap\css\my_css\estilos.css" />
     <Content Include="Content\My_Bootstrap\css\patterns\1.png" />
     <Content Include="Content\My_Bootstrap\css\patterns\2.png" />
     <Content Include="Content\My_Bootstrap\css\patterns\3.png" />
@@ -1149,6 +1155,11 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201810142225237_RolID.resx">
+      <DependentUpon>201810142225237_RolID.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,22 +1,103 @@
 ﻿@using Microsoft.AspNet.Identity
+@using HospitalPrivadoHP.Models
+@model LoginViewModel
 @if (Request.IsAuthenticated)
 {
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary"><i class="fa fa-bars"></i> </a>
+    </div>
     using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
     {
-    @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
 
-    <ul class="nav navbar-nav navbar-right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
+        <ul class="nav navbar-top-links navbar-right">
+            <li>
+                <a href="../Home/Index" style="color:dodgerblue">Hola @User.Identity.GetUserName() !</a>
+            </li>
+            <li>
+                <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="">
+                    <i class="fa fa-sign-out"></i>
+                    <li><a href="javascript:document.getElementById('logoutForm').submit()" style="color:red">Cerrar Sesion</a></li>
+                </a>
+            </li>
+        </ul>
     }
 }
+
 else
 {
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    <div class="navbar-header">
+        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary "><i class="fa fa-bars"></i> </a>
+    </div>
+    <ul class="nav navbar-top-links navbar-right">
+        <li>
+            <a href="../Account/Register">Registrate</a>
+        </li>
+        <li>
+            <a href="" data-toggle="modal" data-target="#exampleModal" data-whatever="">
+                <i class="fa fa-sign-out"></i>
+                <li><a data-toggle="modal" data-target="#exampleModal" data-whatever="">Iniciar Sesion</a></li>
+            </a>
+        </li>
     </ul>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <img src="../Content/My_Bootstrap/img/my_img/iconos/login1.png" class="img-fluid" width="75px">
+                    <h5 class="modal-title" id="exampleModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <section id="loginForm">
+                                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <h4>Use a local account to log in.</h4>
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Log in" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                    @* Enable this once you have account confirmation enabled for password reset functionality
+                                        <p>
+                                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                        </p>*@
+                                }
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
