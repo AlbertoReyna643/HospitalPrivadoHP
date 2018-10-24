@@ -13,8 +13,6 @@
 <body>
     @if (Request.IsAuthenticated)
     {
-
-
         <div id="wrapper">
             <nav class="navbar-default navbar-static-side" role="navigation">
                 <div class="sidebar-collapse">
@@ -31,6 +29,26 @@
                                 <img alt="image" class="img-circle" src="../Content/My_Bootstrap/img/my_img/clinica_logo.png" style="width:50px" />
                             </div>
                         </li>
+
+                        @if (ViewBag.rol == 1)
+                        {
+                            <li>
+                                <a href="../" style="background-color:red;"><i class="fa fa-user"></i> <span class="nav-label">Administrador</span></a>
+                            </li>
+                        }
+                        else if (ViewBag.rol == 2)
+                        {
+                            <li>
+                                <a href="../" style="background-color:blue;"><i class="fa fa-user"></i> <span class="nav-label">Doctor</span></a>
+                            </li>
+                        }
+                        else if (ViewBag.rol == 3)
+                        {
+                            <li>
+                                <a href="../" style="background-color:blueviolet;"><i class="fa fa-user"></i> <span class="nav-label">Paciente</span></a>
+                            </li>
+                        }
+
                         <li>
                             <a href="../"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span></a>
                         </li>
@@ -40,7 +58,7 @@
                         <li>
                             <a href="../"><i class="glyphicon glyphicon-signal"></i> <span class="nav-label">Beneficios</span></a>
                         </li>
-                        
+
                         <li>
                             <a href="#"><i class="fa fa-info-circle"></i> <span class="nav-label">Acerca de</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
@@ -607,5 +625,6 @@
         </div>
 
     }
+    @RenderSection("scripts", required: false)
 </body>
 </html>

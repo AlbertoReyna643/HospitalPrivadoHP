@@ -5,3 +5,19 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+
+<script type="text/javascript" src="https://www.bing.com/api/maps/sdk/mapcontrol?callback=GetMap?key=AiekWbeNgZoREP6PlIs6FzFSo_d0ipJ8JZIcnK6QZiBs76TwoN0uS7cpQ6N6MwtE?setMkt=es-MX?setLang=es"async defer></script>
+
+<div id="myMap" style="position:relative;width:600px;height:460px;"></div>
+
+<script type="text/javascript">
+    function GetMap() {
+        var map = new Microsot.Maps.Map("myMap", {
+            credentials: 'AiekWbeNgZoREP6PlIs6FzFSo_d0ipJ8JZIcnK6QZiBs76TwoN0uS7cpQ6N6MwtE',
+            center: new Microsot.Maps.Location(19.409116, -99.317112),
+            mapTypeId: Microsot.Maps.MapTypeId.aerial,
+            zoom: 18,
+            showBreadcrumb: true
+        });
+    }
+</script>
