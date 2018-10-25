@@ -2,13 +2,48 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>Hospital Privado</h1>
-    <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
-    <div class="img-responsive">
-        <img src="../Content/My_Bootstrap/img/my_img/hosp4.jpg" class="top-izq" width="100%" />
+@if (ViewBag.rol == 1)
+{
+    <div class="jumbotron">
+        <h1>Hospital Privado</h1>
+        <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
+        <div class="img-responsive">
+            <img src="../Content/My_Bootstrap/img/my_img/hosp3.jpg" class="top-izq" width="100%" />
+        </div>
     </div>
-</div>
+}
+else if (ViewBag.rol == 2)
+{
+    <div class="jumbotron">
+        <h1>Hospital Privado</h1>
+        <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
+        <div class="img-responsive">
+            <img src="../Content/My_Bootstrap/img/my_img/doctores.jpg" class="top-izq" width="100%" />
+        </div>
+    </div>
+}
+else if (ViewBag.rol == 3)
+{
+    <div class="jumbotron">
+        <h1>Hospital Privado</h1>
+        <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
+        <div class="img-responsive">
+            <img src="../Content/My_Bootstrap/img/my_img/pacientes.jpg" class="top-izq" width="100%" />
+        </div>
+    </div>
+}
+else
+{
+    <div class="jumbotron">
+        <h1>Hospital Privado</h1>
+        <p class="lead">Tú salud es importante y nos interesa tu bien estar.</p>
+        <div class="img-responsive">
+            <img src="../Content/My_Bootstrap/img/my_img/hosp4.jpg" class="top-izq" width="100%" />
+        </div>
+    </div>
+}
+
+
 <center>
     <h2>Clinica Privada</h2>
 </center>
