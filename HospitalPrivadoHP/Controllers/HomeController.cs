@@ -39,5 +39,17 @@ namespace HospitalPrivadoHP.Controllers
 
 			return View();
 		}
+
+		public ActionResult Servicios()
+		{
+			ViewBag.Message = "Servicios";
+			return View();
+		}
+
+		public ActionResult Beneficios()
+		{
+			ViewBag.Message = "Beneficios";
+			return View();
+		}
 	}
 }

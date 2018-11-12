@@ -1139,6 +1139,8 @@
     <Content Include="Views\TipoUsuarios\Details.cshtml" />
     <Content Include="Views\TipoUsuarios\Edit.cshtml" />
     <Content Include="Views\TipoUsuarios\Index.cshtml" />
+    <Content Include="Views\Home\Servicios.cshtml" />
+    <Content Include="Views\Home\Beneficios.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
